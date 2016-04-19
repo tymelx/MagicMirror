@@ -11,6 +11,9 @@
       <h1>Dashboard Test</h1>
       <div id="left-column">
 		  <p id="current-time">{{currentTime}}</p>
+		  <p id="weather">
+			  {{currentWeather.summary}} - {{currentWeather.apparentTemperature}} - Winds {{currentWeather.windSpeed}} mp/h
+		  </p>
       </div>
       <script src="/bower_components/angular/angular.js"></script>
       <script src="/bower_components/moment/moment.js"></script>
