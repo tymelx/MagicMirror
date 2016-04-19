@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "ejs": "^0.7.2",
-    "express": "^2.5.11"
+    "bower": "^1.7.9",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
   }
 }
