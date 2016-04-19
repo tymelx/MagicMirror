@@ -1,0 +1,9 @@
+{
+  "name": "magicmirror",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "ejs": "^0.7.2",
+    "express": "^2.5.11"
+  }
+}
