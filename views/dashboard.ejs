@@ -7,9 +7,15 @@
     <meta name="author" content="">
     <link href="/stylesheets/dashboard.css" rel="stylesheet">
   </head>
-  <body>
+  <body ng-app="dashboard" ng-controller="dashboardCtrl">
       <h1>Dashboard Test</h1>
-      
+      <div id="left-column">
+		  <p id="current-time">{{currentTime}}</p>
+      </div>
       <script src="/bower_components/angular/angular.js"></script>
+      <script src="/bower_components/moment/moment.js"></script>
+	  
+	  <!--Actual app scripts-->
+	  <script src="/scripts/dashboardCtrl.js"></script>
   </body>
 </html>  
