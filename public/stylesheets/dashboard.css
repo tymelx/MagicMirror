@@ -8,6 +8,11 @@ h1 {
 
 #current-time {
     color: white;
+    font-size: x-large;
+}
+
+#current-date {
+    font-size: xx-large;
 }
 
 #weather {

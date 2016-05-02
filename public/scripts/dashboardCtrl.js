@@ -4,9 +4,13 @@ angular.module("dashboard", []).controller("dashboardCtrl", ["$scope", "$interva
     
     createCurrentTime();
     function createCurrentTime() {
+        $scope.currentTime = moment().format("hh:mm A");
+        $scope.currentDay = moment().format("dddd, MMM D")
+        
         $scope.currentTimeInterval = $interval(function() {
-            $scope.currentTime = moment().format("hh:mm:ss A");
-        }, 1000)
+            $scope.currentTime = moment().format("hh:mm A");
+            $scope.currentDay = moment().format("dddd, MMM D")
+        }, 60000)
     }
     
     $scope.currentWeather = null;

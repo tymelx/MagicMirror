@@ -10,15 +10,15 @@
     <script src="https://apis.google.com/js/client.js"></script>
   </head>
   <body ng-app="dashboard" ng-controller="dashboardCtrl" ng-cloak>
-      <h1>Dashboard Test</h1>
       <div id="left-column">
-		  <p id="current-time">{{currentTime}}</p>
-		  <p id="weather">
-			  {{currentWeather.summary}} - {{currentWeather.apparentTemperature}} - Winds {{currentWeather.windSpeed}} mp/h
-		  </p>
+        <p id="current-date">{{currentDay}}</p>
+        <p id="current-time">{{currentTime}}</p>
+        <p id="weather">
+          {{currentWeather.summary}} - {{currentWeather.apparentTemperature}} - Winds {{currentWeather.windSpeed}} mp/h
+        </p>
       </div>
       
-      <div>
+      <div id="right-column">
         <!--If we need to authorize yet, this view is shown-->
         <div id="calendar-authorize" ng-show="!googleAuthStatus && !isGettingInitialGoogleStatus" style="color: white;">
           <span>Authorize access to Google Calendar API</span>
@@ -37,6 +37,11 @@
         <div id="calendar-populated" style="color: white;">
           <p ng-repeat="eventDescription in todaysEvents">{{eventDescription}}<p>
         </div>
+      </div>
+      
+      <div id="center-column">
+        <!--Quotes go here-->
+        
       </div>
       <script src="/bower_components/angular/angular.js"></script>
       <script src="/bower_components/moment/moment.js"></script>
