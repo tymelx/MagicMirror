@@ -28,12 +28,6 @@ body {
   color: white;
 }
 
-.wrapper {
-  width: 75%;
-  margin: 5% auto;
-  text-align: center;
-}
-
 /* SVG GLOBAL */
 svg {
   display: inline-block;
