@@ -23,6 +23,7 @@ angular.module("dashboard", []).controller("dashboardCtrl", ["$scope", "$interva
     
     function _getWeather() {
         $scope.isGettingWeather = true;
+
         $http.get("/weather").success(function(weather) {
             $scope.isGettingWeather = false;
             $scope.currentWeather = weather;

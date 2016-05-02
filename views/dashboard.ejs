@@ -14,10 +14,8 @@
         <p id="current-date">{{currentDay}}</p>
         <p id="current-time">{{currentTime}}</p>
         <p id="weather">
+          <span ng-include="'/templates/icons.html'"></span>
           {{currentWeather.summary}} - {{currentWeather.apparentTemperature}} - Winds {{currentWeather.windSpeed}} mp/h
-          <div ng-include="'/templates/icons.html'">
-            
-          </div>
         </p>
       </div>
       
