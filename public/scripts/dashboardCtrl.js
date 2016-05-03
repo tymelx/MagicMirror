@@ -64,4 +64,17 @@ angular.module("dashboard", []).controller("dashboardCtrl", ["$scope", "$interva
             });
         })
     }
+    
+    $http.get("/quotes").success(function(quotes) {
+        $scope.currentQuote = 0;
+        $scope.quotes = quotes;
+        
+        $interval(function() {
+            if (($scope.currentQuote + 1) === quotes.length) {
+                $scope.currentQuote = 0;
+            } else {
+                $scope.currentQuote++;
+            }
+        }, 86400000)
+    })
 }])

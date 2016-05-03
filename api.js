@@ -11,4 +11,8 @@ module.exports = function(app) {
     app.get("/googlecredentials", function(req, res) {
         res.send(appConfig.googleCalendarClientID);
     })
+    
+    app.get("/quotes", function(req, res) {
+        res.send(appConfig.quotes);
+    })
 }
