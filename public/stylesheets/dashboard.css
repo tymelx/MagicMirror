@@ -75,18 +75,19 @@ ul {
 #center-column {
    align-items: flex-end;
    display: flex;
-    flex: 1 1 33.333%;
+   flex: 1 1 33.333%;
    justify-content: center;
    order: 2;
-    padding: 5%;
+   padding: 5%;
+   text-align: center;
 }
 
 #right-column {
     display: flex;
     flex: 1 1 33.333%;
-   flex-direction: column;
-   justify-content: space-between;
-   order: 3;
+    flex-direction: column;
+    justify-content: space-between;
+    order: 3;
     padding: 5%;
 }
 
@@ -95,12 +96,16 @@ ul {
 }
 
 #current-date {
-    font-size: 2.5vw;
+    font-size: 1.0vw;
 }
 
 #current-time {
     font-size: 4vw;
     font-weight: bold;
+}
+
+#current-greeting {
+    font-size: 2.0vw;
 }
 
 .arrow-up {

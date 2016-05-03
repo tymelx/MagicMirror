@@ -6,11 +6,32 @@ angular.module("dashboard", []).controller("dashboardCtrl", ["$scope", "$interva
     function createCurrentTime() {
         $scope.currentTime = moment().format("hh:mm A");
         $scope.currentDay = moment().format("dddd, MMM D")
-        
+        $scope.greeting = "Good " + getHumanizedTimeOfDay(moment()) + " Emily";
+
         $scope.currentTimeInterval = $interval(function() {
             $scope.currentTime = moment().format("hh:mm A");
             $scope.currentDay = moment().format("dddd, MMM D")
+            $scope.greeting = "Good " + getHumanizedTimeOfDay(moment()) + " Emily";
         }, 60000)
+    }
+    
+    function getHumanizedTimeOfDay(m) {
+        var g = null; //return g
+        if(!m || !m.isValid()) { return; } //if we can't find a valid or filled moment, we return.
+        
+        var split_afternoon = 12 //24hr time to split the afternoon
+        var split_evening = 17 //24hr time to split the evening
+        var currentHour = parseFloat(m.format("HH"));
+        
+        if(currentHour >= split_afternoon && currentHour <= split_evening) {
+            g = "Afternoon";
+        } else if(currentHour >= split_evening) {
+            g = "Evening";
+        } else {
+            g = "Morning";
+        }
+        
+        return g;
     }
     
     $scope.currentWeather = null;
