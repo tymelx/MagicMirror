@@ -48,8 +48,8 @@ function _getWeather(callback) {
                 }
                 
                 //Have to get the current day high and low from this collection, lame
-                formattedWeather.currently["high"] = weather.daily.data[0].temperatureMax;
-                formattedWeather.currently["low"] = weather.daily.data[0].temperatureMin;
+                formattedWeather.currently["high"] = Math.ceil(weather.daily.data[0].temperatureMax);
+                formattedWeather.currently["low"] = Math.ceil(weather.daily.data[0].temperatureMin);
             }
             
             if (weather.currently) {

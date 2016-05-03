@@ -1,4 +1,124 @@
+* {
+    box-sizing:border-box;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #fff;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 1vw;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    height: 100%;
+}
+
+#left-column {
+    display: flex;
+    flex: 1 1 33.333%;
+   flex-direction: column;
+   justify-content: space-between;
+   order: 1;
+    padding: 5%;
+}
+
+#icon-html-container {
+    display: flex;
+    align-items: center;
+}
+
+#icon-current-temp {
+    font-size: 2.5vw;
+    font-weight: bold;
+    margin-left: 1vw
+}
+
+#weather-five-day {
+    /*align-self: flex-end*/
+}
+
+.day-of-the-week {
+    display: inline-block;
+    width: 25%;
+}
+
+.day-of-the-week-temp {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.weather-five-day-li {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* width: 50%; */
+    overflow: hidden;
+}
+
+#center-column {
+   align-items: flex-end;
+   display: flex;
+    flex: 1 1 33.333%;
+   justify-content: center;
+   order: 2;
+    padding: 5%;
+}
+
+#right-column {
+    display: flex;
+    flex: 1 1 33.333%;
+   flex-direction: column;
+   justify-content: space-between;
+   order: 3;
+    padding: 5%;
+}
+
+#date-information {
+    text-align: right;
+}
+
+#current-date {
+    font-size: 2.5vw;
+}
+
+#current-time {
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.arrow-up {
+    border-bottom: .75vw solid #fff;
+	border-left: .5vw solid transparent;
+    border-right: .5vw solid transparent;
+    border-top: 0;
+    display: inline-block;
+	height: 0; 
+	width: 0; 
+}
+
+.arrow-down {
+	border-bottom: 0;
+	border-left: .5vw solid transparent;
+    border-right: .5vw solid transparent;
+    border-top: .75vw solid #fff;
+    display: inline-block;
+	height: 0;
+	width: 0; 
 }

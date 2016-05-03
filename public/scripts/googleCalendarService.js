@@ -72,7 +72,7 @@ angular.module("dashboard").factory("GoogleCalendar", ["$http", function($http) 
 						if (!end) {
 							end = event.end.date;
 						}
-						var eventDescription = (event.summary + ' (' + moment(when).format("hh:mm A") + ' - ' + moment(end).format("hh:mm A") + ')');
+						var eventDescription = (moment(when).format("hh:mm a") + ' - ' + moment(end).format("hh:mm a") + ' - ' + event.summary)
 						descriptions.push(eventDescription);
 					}
 				} else {

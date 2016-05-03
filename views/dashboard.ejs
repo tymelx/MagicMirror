@@ -12,32 +12,38 @@
   <body ng-app="dashboard" ng-controller="dashboardCtrl" ng-cloak>
     <div id="container">
       <div id="left-column">
-        <p id="weather-today">
-          <span ng-include="'/templates/icons.html'"></span>
-          <span>{{weather.currently.temperature}}</span>
-          
+        <div id="weather-today">
+          <div id="icon-html-container">
+            <span id="icon-html" ng-include="'/templates/icons.html'"></span>
+            <span id="icon-current-temp">{{weather.currently.temperature}}&deg;</span>
+          </div>
           <div id="weather-summary">
             <p>{{weather.currently.location}}</p>
             <p>{{weather.currently.summary}}</p>
             <p>W {{weather.currently.windSpeed}}</p>
-            <p>H: {{weather.currently.high}} L {{weather.currently.low}}</p>
+            <p>
+              <span class="arrow-up"></span>&nbsp;{{weather.currently.high}}&deg;
+              <span class="arrow-down"></span>&nbsp;{{weather.currently.low}}&deg;
+            </p>
           </div>
-        </p>
+        </div>
         
-        <p id="weather-five-day">
+        <div id="weather-five-day">
           <ul>
-            <li ng-repeat="day in weather.fiveDay">
-              {{day.dayOfWeek}} {{day.temperature}} {{day.summary}}
+            <li ng-repeat="day in weather.fiveDay" class="weather-five-day-li">
+              <span class="day-of-the-week">{{day.dayOfWeek}}</span>
+              <span class="day-of-the-week-temp">{{day.temperature}}&deg;</span>
+              <span>{{day.summary}}</span>
             </li>  
           </ul>
-        </p>
+        </div>
       </div>
       
       <div id="right-column">
-        <p id="date-information">
+        <div id="date-information">
           <p id="current-date">{{currentDay}}</p>
           <p id="current-time">{{currentTime}}</p>
-        </p>
+        </div>
         
         <div id="google-calendar-container">
           <!--If we need to authorize yet, this view is shown-->
@@ -56,7 +62,7 @@
           
           <!--Populated state-->
           <div id="calendar-populated" style="color: white;">
-            <p ng-repeat="eventDescription in todaysEvents">{{eventDescription}}<p>
+            <p ng-repeat="eventDescription in todaysEvents">{{eventDescription}}</p>
           </div>
         </div>
       </div>
