@@ -1,20 +1,4 @@
 body {
     background-color: black;
-}
-
-h1 {
-    color: white;
-}
-
-#current-time {
-    color: white;
-    font-size: x-large;
-}
-
-#current-date {
-    font-size: xx-large;
-}
-
-#weather {
     color: white;
 }

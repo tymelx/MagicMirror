@@ -26,7 +26,7 @@ angular.module("dashboard", []).controller("dashboardCtrl", ["$scope", "$interva
 
         $http.get("/weather").success(function(weather) {
             $scope.isGettingWeather = false;
-            $scope.currentWeather = weather;
+            $scope.weather = weather;
         }).error(function(err) {
             //Ahh... oh well
         })
@@ -35,12 +35,14 @@ angular.module("dashboard", []).controller("dashboardCtrl", ["$scope", "$interva
     $scope.isGettingInitialGoogleStatus = true;
     $timeout(function() {
         GoogleCalendar.isAuthenticated(function(status) {
-            $scope.isGettingInitialGoogleStatus = false;
-            $scope.googleAuthStatus = status;
-            
-            if (status) {
-                _loadGoogleEvents();
-            }
+            $timeout(function() {
+                $scope.isGettingInitialGoogleStatus = false;
+                $scope.googleAuthStatus = status;
+                
+                if (status) {
+                    _loadGoogleEvents();
+                }
+            });
         })
     }, 3000)
     
@@ -57,7 +59,9 @@ angular.module("dashboard", []).controller("dashboardCtrl", ["$scope", "$interva
     
     function _loadGoogleEvents() {
         GoogleCalendar.loadCalendarEvents(function(events) {
-            $scope.todaysEvents = events;
+            $timeout(function() {
+                $scope.todaysEvents = events;
+            });
         })
     }
 }])

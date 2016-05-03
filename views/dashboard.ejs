@@ -10,45 +10,66 @@
     <script src="https://apis.google.com/js/client.js"></script>
   </head>
   <body ng-app="dashboard" ng-controller="dashboardCtrl" ng-cloak>
+    <div id="container">
       <div id="left-column">
-        <p id="current-date">{{currentDay}}</p>
-        <p id="current-time">{{currentTime}}</p>
-        <p id="weather">
+        <p id="weather-today">
           <span ng-include="'/templates/icons.html'"></span>
-          {{currentWeather.summary}} - {{currentWeather.apparentTemperature}} - Winds {{currentWeather.windSpeed}} mp/h
+          <span>{{weather.currently.temperature}}</span>
+          
+          <div id="weather-summary">
+            <p>{{weather.currently.location}}</p>
+            <p>{{weather.currently.summary}}</p>
+            <p>W {{weather.currently.windSpeed}}</p>
+            <p>H: {{weather.currently.high}} L {{weather.currently.low}}</p>
+          </div>
+        </p>
+        
+        <p id="weather-five-day">
+          <ul>
+            <li ng-repeat="day in weather.fiveDay">
+              {{day.dayOfWeek}} {{day.temperature}} {{day.summary}}
+            </li>  
+          </ul>
         </p>
       </div>
       
       <div id="right-column">
-        <!--If we need to authorize yet, this view is shown-->
-        <div id="calendar-authorize" ng-show="!googleAuthStatus && !isGettingInitialGoogleStatus" style="color: white;">
-          <span>Authorize access to Google Calendar API</span>
-          <!--Button for the user to click to initiate auth sequence -->
-          <button id="authorize-button" ng-click="authorizeGoogle()">
-            Authorize
-          </button>
-        </div>
+        <p id="date-information">
+          <p id="current-date">{{currentDay}}</p>
+          <p id="current-time">{{currentTime}}</p>
+        </p>
         
-        <!--Empty state-->
-        <div id="calendar-empty" ng-show="todaysEvents.length === 0">
-          No appointments for today
-        </div>
-        
-        <!--Populated state-->
-        <div id="calendar-populated" style="color: white;">
-          <p ng-repeat="eventDescription in todaysEvents">{{eventDescription}}<p>
+        <div id="google-calendar-container">
+          <!--If we need to authorize yet, this view is shown-->
+          <div id="calendar-authorize" ng-show="!googleAuthStatus && !isGettingInitialGoogleStatus">
+            <span>Authorize access to Google Calendar API</span>
+            <!--Button for the user to click to initiate auth sequence -->
+            <button id="authorize-button" ng-click="authorizeGoogle()">
+              Authorize
+            </button>
+          </div>
+          
+          <!--Empty state-->
+          <div id="calendar-empty" ng-show="todaysEvents.length === 0">
+            No appointments for today
+          </div>
+          
+          <!--Populated state-->
+          <div id="calendar-populated" style="color: white;">
+            <p ng-repeat="eventDescription in todaysEvents">{{eventDescription}}<p>
+          </div>
         </div>
       </div>
       
       <div id="center-column">
         <!--Quotes go here-->
-        
       </div>
-      <script src="/bower_components/angular/angular.js"></script>
-      <script src="/bower_components/moment/moment.js"></script>
-	  
-	  <!--Actual app scripts-->
-	  <script src="/scripts/dashboardCtrl.js"></script>
+    </div>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+  
+    <!--Actual app scripts-->
+    <script src="/scripts/dashboardCtrl.js"></script>
     <script src="/scripts/googleCalendarService.js"></script>
   </body>
 </html>  

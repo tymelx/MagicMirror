@@ -41,7 +41,7 @@ function _getWeather(callback) {
                     
                     var dailyInstance = weather.daily.data[i + 1];
                     fiveDayInstance.dayOfWeek = moment((dailyInstance.time * 1000)).format("dddd");
-                    fiveDayInstance.temperature = dailyInstance.temperatureMax;
+                    fiveDayInstance.temperature = Math.ceil(dailyInstance.temperatureMax);
                     fiveDayInstance.summary = dailyInstance.summary;
                     
                     formattedWeather["fiveDay"].push(fiveDayInstance)

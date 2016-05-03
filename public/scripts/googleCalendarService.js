@@ -77,6 +77,7 @@ angular.module("dashboard").factory("GoogleCalendar", ["$http", function($http) 
 					}
 				} else {
 					//empty state
+					//handled in the view
 				}
 				
 				callback(descriptions)
